@@ -1,0 +1,31 @@
+body {
+  background: #eeeeee;
+  font: 1.4rem;
+}
+
+.card {
+  margin-top: 6rem;
+  width: 47rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.input__container {
+  display: flex;
+  border: 2px solid #eeeeee;
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+.input__text {
+  width: 40rem;
+  height: 4rem;
+  border: 2px solid #eeeeee;
+  border-radius: 0.4rem;
+}
+.input__btn {
+  padding: 0 30px;
+  border-radius: 10px;
+}
+@media screen and (max-width: 820px) {
+  .card {
+    width: 30rem;
+  }
+}

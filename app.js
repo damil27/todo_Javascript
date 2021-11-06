@@ -1,19 +1,19 @@
 const todos = [
-  { todoText: "Item 1", completed: false },
-  { todoText: "Item 2", completed: false },
-  { todoText: "Item 3", completed: false },
+  { todoText: "Item 1", completed: true },
+  { todoText: "Item 2", completed: true },
+  { todoText: "Item 3", completed: true },
 ];
 
-function addItem(item) {
-  todos.push([{ todoText: item, completed: false }]);
-  console.log(todos);
+// add new todo item
+function addItem() {
+  let newTodoInput = document.getElementById("new-todo");
+  let item = newTodoInput.value;
+  todos.push({ todoText: item, completed: false });
+  newTodoInput.value = "";
+  displaytodo();
 }
-addItem("new object item");
 
-function updateItem(id, item) {
-  todos[id].todoText = item;
-  console.log(todos);
-}
+function updateItem(id, item) {}
 updateItem(0, "Item 1 edited");
 
 function toggle(position) {
@@ -22,11 +22,50 @@ function toggle(position) {
   } else {
     todos[position].completed = false;
   }
-  console.log(todos);
+  displaytodo();
+}
+function displaytodo() {
+  for (let item = 0; item < todos.length; item++) {
+    console.log(todos[item]);
+  }
 }
 
-toggle(0);
+function toggleAll() {
+  let completedTodo = 0;
+
+  for (let item = 0; item < todos.length; item++) {
+    if (todos[item].completed === true) {
+      completedTodo++;
+    }
+  }
+  if (completedTodo === todos.length) {
+    for (let item = 0; item < todos.length; item++) {
+      todos[item].completed = false;
+    }
+  } else {
+    for (let item = 0; item < todos.length; item++) {
+      todos[item].completed = true;
+    }
+  }
+
+  displaytodo();
+
+  // for (let item = 0; item < todos.length; item++) {
+  //   if (todos[item].completed === true) {
+  //     todos[item].completed = false;
+  //     completedTodo++;
+  //   } else {
+  //     todos[item].completed = true;
+  //   }
+  // }
+}
+let toggleBtn = document.getElementById("toggleAll__Btn");
+
+toggleBtn.addEventListener("click", toggleAll);
+let addButton = document.getElementById("add__btn");
+
 // function deleteItem(start) {
+addButton.addEventListener("click", addItem);
 //   todos.splice(start, 1);
 //   console.log(todos);
 // }
