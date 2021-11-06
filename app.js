@@ -9,17 +9,23 @@ function addItem(item) {
   console.log(todos);
 }
 addItem("new object item");
-// addItem("new item with funtion");
-// addItem("last item");
 
-// function updateItem(id, item) {
-//   todos[id] = item;
-//   console.log(todos);
-// }
+function updateItem(id, item) {
+  todos[id].todoText = item;
+  console.log(todos);
+}
+updateItem(0, "Item 1 edited");
 
-// updateItem(1, "item--1");
-// updateItem(0, "firstItem");
+function toggle(position) {
+  if (todos[position].completed === false) {
+    todos[position].completed = true;
+  } else {
+    todos[position].completed = false;
+  }
+  console.log(todos);
+}
 
+toggle(0);
 // function deleteItem(start) {
 //   todos.splice(start, 1);
 //   console.log(todos);
